@@ -52,8 +52,8 @@ class Reactions
             prettyDump( mysqli_error($con) );
         } else{
             $grqry->bind_result($id,$name,$email);
-            $grqry->store_result();
             if($grqry->execute()){
+                $grqry->store_result();
                 while($grqry->fetch()){
                     $array[] = [
                         'id' => $id,
