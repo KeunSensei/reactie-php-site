@@ -7,7 +7,7 @@ session_start();
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "root";
-$dbname = "youtube-test";
+$dbname = "youtube-test-2";
 
 /**
  * Voor de Windows gebruikers;

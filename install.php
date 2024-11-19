@@ -107,22 +107,32 @@ include("config.php");
         `message` varchar(255) NOT NULL,
         `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;")) {
+
+        $result = mysqli_query($con, "ALTER TABLE `reactions`
+        ADD PRIMARY KEY (`id`);");
+        $result = mysqli_query($con, "ALTER TABLE `videos`
+        ADD PRIMARY KEY (`id`);");
+        $result = mysqli_query($con, "ALTER TABLE `reactions`
+        MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;");
+        $result = mysqli_query($con, "ALTER TABLE `videos`
+        MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;");
+
+
        
         // Free result set
 
-        if ($result = mysqli_query($con, "INSERT INTO `reactions` (`id`, `video_id`, `name`, `email`, `message`, `date_added`) VALUES
-            (1, NULL, 'Pino', 'pino@sesamstraat.nl', 'Dit is de beste Rick Roll ever!', '2024-10-23 07:21:51'),
-            (2, NULL, 'Tommy', 'tommy@sesamstraat.nl', 'Deze wil ik de hele dag wel draaien', '2024-10-23 07:21:51');")){
+            if ($result = mysqli_query($con, "INSERT INTO `reactions` (`id`, `video_id`, `name`, `email`, `message`, `date_added`) VALUES
+                (1, NULL, 'Pino', 'pino@sesamstraat.nl', 'Dit is de beste Rick Roll ever!', '2024-10-23 07:21:51'),
+                (2, NULL, 'Tommy', 'tommy@sesamstraat.nl', 'Deze wil ik de hele dag wel draaien', '2024-10-23 07:21:51');")){
 
-            ?>
-            <script>
-                let h3 = document.getElementById('update-status');
+                ?>
+                <script>
+                    let h3 = document.getElementById('update-status');
 
-                h3.innerHTML = "Installeren gelukt, verwijder je install.php."
-            </script>
-            <?php
-        }
-
+                    h3.innerHTML = "Installeren gelukt, verwijder je install.php."
+                </script>
+                <?php
+            }   
         
     }
         ?>
